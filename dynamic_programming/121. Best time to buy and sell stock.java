@@ -21,7 +21,7 @@ class Solution {
         int[] maxProfit = new int[size];
         minPrice[0] = prices[0];
         maxProfit[0] = 0;
-        
+
         for(int i = 1; i < size; i++){
             minPrice[i] = Math.min(prices[i], minPrice[i-1]);
             
