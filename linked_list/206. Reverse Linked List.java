@@ -17,6 +17,7 @@ class Solution {
         ListNode previous = null;
         ListNode current = head;
         
+        if(head == null || head.next == null) return head;
         while(current != null){
             ListNode temp = current.next;
             current.next = previous;
