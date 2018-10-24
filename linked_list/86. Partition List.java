@@ -1,0 +1,37 @@
+/*
+    86. Partition List
+    create two linked list and connect them together
+*/
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+
+
+class Solution {
+    public ListNode partition(ListNode head, int x) {
+        ListNode smallHead = new ListNode(0);
+        ListNode small = smallHead;
+        ListNode bigHead = new ListNode(0);
+        ListNode big = bigHead;
+        
+        while(head != null){
+            ListNode temp = new ListNode(head.val);
+            if(head.val < x){
+                small.next = temp;
+                small = small.next;
+            } else {
+                big.next = temp;
+                big = big.next;
+            }
+            head = head.next;
+        }
+        small.next = bigHead.next;
+        return smallHead.next;
+    }
+}
