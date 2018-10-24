@@ -35,3 +35,32 @@ class Solution {
         return smallHead.next;
     }
 }
+
+//solution 2: 注意start point边界处理
+
+class Solution {
+    public ListNode partition(ListNode head, int x) {
+        if(head == null || head.next == null) return head;
+		ListNode dummy=new ListNode(0);
+        dummy.next=head;
+        ListNode previous=dummy;
+        ListNode current=head;
+        ListNode pointer=null;
+        while(current!=null){
+            if(current.val>=x && pointer==null){
+            	pointer=previous;
+            }
+            if(current.val<x && pointer!=null){
+            	previous.next=current.next;
+            	current.next=pointer.next;
+            	pointer.next=current;
+            	pointer=pointer.next;
+                current=previous.next;
+            } else {
+                previous=previous.next;
+                current=current.next;
+            }
+        }
+        return dummy.next;
+    }
+}
