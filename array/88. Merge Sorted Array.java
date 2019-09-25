@@ -16,10 +16,6 @@ class Solution {
             }
         }
         
-        while (index1 >= 0) {
-            nums1[index3--] = nums1[index1--];
-        }
-        
         while (index2 >= 0) {
             nums1[index3--] = nums2[index2--];
         }
