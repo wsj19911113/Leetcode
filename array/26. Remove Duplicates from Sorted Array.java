@@ -1,0 +1,25 @@
+/*
+    26. Remove Duplicates from Sorted Array
+    fast,slow pointer
+*/
+
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        if(nums == null){
+            return 0;
+        }
+        if(nums.length == 1){
+            return 1;
+        }
+        
+        int i = 0;
+        for (int j = i; j < nums.length; j++) {
+            if (nums[i] != nums[j]) {
+                i++;
+                nums[i] = nums[j];
+            }
+        }
+        
+        return i+1;
+    }
+}
